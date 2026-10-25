@@ -1,0 +1,105 @@
+/* ==========================================================================
+   Global Theme & Custom Properties
+   ========================================================================== */
+:root {
+  /* Editorial portfolio system from the selected design */
+  --background: 45 20% 98%;
+  --foreground: 0 0% 10%;
+  --card: 45 15% 97%;
+  --card-foreground: 0 0% 10%;
+  --primary: #0f0f0f;
+  --primary-hover: #2d2d2d;
+  --primary-foreground: 45 20% 98%;
+  --secondary: 45 10% 96%;
+  --secondary-foreground: 0 0% 10%;
+  --muted: 45 10% 94%;
+  --muted-foreground: 0 0% 45%;
+  --accent: 45 8% 92%;
+  --accent-foreground: 0 0% 10%;
+  --border: 40 10% 88%;
+  --input: 40 10% 88%;
+  --ring: 0 0% 10%;
+  --radius: 0rem;
+  --cream: 45 20% 98%;
+  --cream-dark: 45 15% 96%;
+  --cream-darker: 40 12% 93%;
+  --ink: 0 0% 10%;
+  --ink-light: 0 0% 29%;
+  --ink-muted: 0 0% 48%;
+  --divider: 40 10% 88%;
+
+  --bg-dark: #f8f7f2;
+  --card-bg: #fffefa;
+  --border-color: #dcd9d0;
+  --text-main: #201f1b;
+  --text-muted: #6a675f;
+  --font-sans: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+}
+
+/* ==========================================================================
+   CSS Reset & Base Styles
+   ========================================================================== */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+  color-scheme: light;
+  scroll-padding-top: 1rem;
+}
+
+body {
+  background: hsl(var(--background));
+  color: hsl(var(--foreground));
+  font-family: var(--font-sans);
+  line-height: 1.6;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body,
+button,
+a {
+  -webkit-tap-highlight-color: transparent;
+}
+
+/* Custom Text Selection */
+::selection {
+  background-color: #425c49;
+  color: #ffffff;
+}
+
+/* Global Link & Button Typography Defaults */
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+/* Clean Custom Scrollbars */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f0eee7;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #c4c0b5;
+  border-radius: 4px;
+
+  &:hover {
+    background: #8b877c;
+  }
+}

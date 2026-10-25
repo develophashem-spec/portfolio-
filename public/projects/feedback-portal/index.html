@@ -1,0 +1,101 @@
+<!doctype html>
+<html lang="en" data-theme="violet">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="A client-side feedback portal demo with a safely rendered response list.">
+    <title>Feedback Portal | Practice Project</title>
+    <link rel="stylesheet" href="../project.css">
+  </head>
+  <body>
+    <a class="skip-link" href="#main">Skip to content</a>
+    <header class="site-header">
+      <a class="site-brand" href="../../#about"><span>AH</span> / Portfolio</a>
+      <nav class="site-navigation" aria-label="Project navigation">
+        <a href="../">All demos</a>
+        <a href="../../#projects">Portfolio</a>
+      </nav>
+    </header>
+    <main class="page-shell" id="main">
+      <header class="page-intro">
+        <h1 class="page-title">A better way to listen.</h1>
+        <p class="page-lead">A compact feedback portal concept that makes it straightforward to share a note and review recent submissions.</p>
+        <p class="demo-note"><strong>Practice project</strong> · Submissions are shown only in this browser session; they are not sent or saved.</p>
+      </header>
+      <div class="feedback-layout">
+        <section aria-labelledby="form-title">
+          <h2 id="form-title">Share feedback</h2>
+          <form id="feedback-form" class="form-stack">
+            <div class="field">
+              <label for="name">Name</label>
+              <input id="name" name="name" autocomplete="name" required>
+            </div>
+            <div class="field">
+              <label for="email">Email <span>(optional)</span></label>
+              <input id="email" name="email" type="email" autocomplete="email">
+            </div>
+            <div class="field">
+              <label for="type">Message type</label>
+              <select id="type" name="type">
+                <option>Feedback</option>
+                <option>Bug report</option>
+                <option>Question</option>
+              </select>
+            </div>
+            <div class="field">
+              <label for="message">Message</label>
+              <textarea id="message" name="message" rows="5" required></textarea>
+            </div>
+            <div class="form-actions">
+              <button class="button" type="submit">Add to demo inbox</button>
+            </div>
+            <p class="status-message" id="feedback-status" aria-live="polite"></p>
+          </form>
+        </section>
+        <section aria-labelledby="inbox-title">
+          <h2 id="inbox-title">Recent responses <span id="response-count">(0)</span></h2>
+          <p class="empty-state" id="empty-state">Your demo inbox is empty. Add a sample response to see it here.</p>
+          <ul class="response-list" id="responses" aria-label="Responses submitted in this session"></ul>
+        </section>
+      </div>
+    </main>
+    <footer class="site-footer">Client-side interaction demo · Refreshing clears the sample inbox</footer>
+    <script>
+      const form = document.querySelector('#feedback-form');
+      const responses = document.querySelector('#responses');
+      const emptyState = document.querySelector('#empty-state');
+      const status = document.querySelector('#feedback-status');
+      const count = document.querySelector('#response-count');
+      let responseCount = 0;
+
+      form.addEventListener('submit', (event) => {
+        event.preventDefault();
+        if (!form.reportValidity()) return;
+
+        const data = new FormData(form);
+        const item = document.createElement('li');
+        item.className = 'response-item';
+
+        const header = document.createElement('div');
+        header.className = 'response-head';
+        const name = document.createElement('strong');
+        name.textContent = String(data.get('name')).trim();
+        const type = document.createElement('span');
+        type.className = 'response-type';
+        type.textContent = String(data.get('type'));
+        const message = document.createElement('p');
+        message.textContent = String(data.get('message')).trim();
+
+        header.append(name, type);
+        item.append(header, message);
+        responses.prepend(item);
+        responseCount += 1;
+        count.textContent = `(${responseCount})`;
+        emptyState.hidden = true;
+        status.textContent = 'Your sample response was added to the inbox.';
+        form.reset();
+        form.elements.name.focus();
+      });
+    </script>
+  </body>
+</html>

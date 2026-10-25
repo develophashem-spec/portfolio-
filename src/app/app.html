@@ -1,0 +1,285 @@
+<a class="skip-link" href="#main">Skip to content</a>
+
+<header class="site-header">
+  <div class="header-inner">
+    <a href="#home" class="wordmark" [attr.aria-label]="title() + ' home'">
+      <span class="wordmark-mark">AH</span>
+      <span class="wordmark-divider" aria-hidden="true"></span>
+      <span>{{ title() }}</span>
+    </a>
+
+    <nav class="primary-nav" aria-label="Main navigation">
+      @for (link of navLinks; track link.label) {
+        <a [href]="link.href">{{ link.label }}</a>
+      }
+      <a class="nav-contact" href="#contact">Let’s talk <span aria-hidden="true">↗</span></a>
+    </nav>
+  </div>
+</header>
+
+<main id="main">
+  <section class="hero" id="home" aria-labelledby="hero-title">
+    <div class="hero-inner page-width">
+      <div class="hero-copy">
+        <p class="eyebrow">Front-end development <span aria-hidden="true">/</span> UI craft</p>
+        <h1 id="hero-title">Making useful things <em>for the web.</em></h1>
+        <p class="hero-lead">
+          I’m Ali, a front-end developer with a Computer Science background and experience across
+          web interfaces, data, and business systems.
+        </p>
+        <div class="hero-actions">
+          <a class="text-link" href="#projects">
+            Explore selected work
+            <svg aria-hidden="true" viewBox="0 0 24 24" width="17" height="17" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M4 12h15m-6-6 6 6-6 6"/></svg>
+          </a>
+          <a class="quiet-link" href="assets/cv/Ali-Hachem-CV.pdf" download="Ali-Hachem-CV.pdf">Download my CV</a>
+          <a class="quiet-link" href="mailto:develophashem@gmail.com">Get in touch</a>
+        </div>
+      </div>
+
+      <aside class="hero-art" aria-label="A snapshot of my development practice">
+        <div class="art-topline"><span>Practice notes</span><span>Beirut · Web</span></div>
+        <div class="art-display">
+          <span class="art-index">AH / 01</span>
+          <p>Clear interfaces.<br><em>Useful details.</em></p>
+          <span class="art-rule" aria-hidden="true"></span>
+          <div class="art-skills">
+            <span>Angular</span>
+            <span>TypeScript</span>
+            <span>Responsive UI</span>
+          </div>
+        </div>
+        <div class="art-caption"><span>Design with purpose</span><span aria-hidden="true">↘</span></div>
+      </aside>
+    </div>
+    <a class="hero-scroll" href="#projects"><span aria-hidden="true"></span> Scroll to explore</a>
+  </section>
+
+  <section class="work-section section" id="projects" aria-labelledby="projects-title">
+    <div class="page-width">
+      <div class="section-heading">
+        <div>
+          <p class="eyebrow">Selected work <span aria-hidden="true">/</span> Practice projects</p>
+          <h2 id="projects-title">Small projects, real interfaces.</h2>
+        </div>
+        <p class="section-intro">A set of small web projects exploring structure, interaction, and clear communication.</p>
+      </div>
+
+      <div class="project-grid">
+        @for (project of featuredProjects; track project.title; let index = $index) {
+          <article class="project-item">
+            <a [href]="project.demoUrl" class="project-link" [attr.aria-label]="'Open ' + project.title + ' demo'">
+              <div class="project-preview" [class]="'project-preview preview-' + project.preview" aria-hidden="true">
+                @switch (project.preview) {
+                  @case ('profile') {
+                    <div class="preview-paper profile-paper">
+                      <span class="paper-label">PROFILE / 01</span>
+                      <span class="profile-initials">AH</span>
+                      <span class="paper-heading">Ali Hachem</span>
+                      <span class="paper-copy">Front-end developer<br>Beirut · Web</span>
+                      <span class="paper-line"></span>
+                      <span class="paper-pills"><i>HTML</i><i>CSS</i><i>UI</i></span>
+                    </div>
+                  }
+                  @case ('registration') {
+                    <div class="preview-paper form-paper">
+                      <span class="paper-label">COURSE / ENROLMENT</span>
+                      <span class="paper-heading">Start learning</span>
+                      <span class="fake-field">Full name</span>
+                      <span class="fake-field">Email address</span>
+                      <span class="fake-select">Experience level <b>⌄</b></span>
+                      <span class="fake-action">Review registration <b>→</b></span>
+                    </div>
+                  }
+                  @case ('watch') {
+                    <div class="watch-art">
+                      <span class="watch-strap"></span>
+                      <span class="watch-face"><b>09:41</b><i>READY FOR TODAY</i></span>
+                      <span class="watch-strap watch-strap-bottom"></span>
+                    </div>
+                    <span class="preview-label">ASTER ONE · CONCEPT</span>
+                  }
+                  @case ('feedback') {
+                    <div class="preview-paper inbox-paper">
+                      <span class="paper-label">FEEDBACK / INBOX</span>
+                      <span class="paper-heading">Recent responses</span>
+                      <span class="inbox-row"><b>Website feedback</b><i>Feedback</i></span>
+                      <span class="inbox-row"><b>Checkout question</b><i>Question</i></span>
+                      <span class="inbox-row"><b>Mobile layout</b><i>Bug report</i></span>
+                    </div>
+                  }
+                  @case ('coffee') {
+                    <div class="preview-paper menu-paper">
+                      <span class="paper-label">CITY COFFEE · SAMPLE MENU</span>
+                      <span class="paper-heading">Coffee, simply.</span>
+                      <span class="menu-row"><b>Drip coffee</b><i>$2.50</i></span>
+                      <span class="menu-row"><b>Latte</b><i>$3.50</i></span>
+                      <span class="menu-row"><b>Cappuccino</b><i>$3.50</i></span>
+                      <span class="menu-row"><b>Espresso</b><i>$2.00</i></span>
+                    </div>
+                  }
+                  @case ('schedule') {
+                    <div class="preview-paper schedule-paper">
+                      <span class="paper-label">WEB DESIGN · COURSE OUTLINE</span>
+                      <span class="paper-heading">Eight weeks, one skill at a time.</span>
+                      <span class="schedule-row"><b>01</b><i>HTML foundations</i></span>
+                      <span class="schedule-row"><b>02</b><i>Forms &amp; tables</i></span>
+                      <span class="schedule-row"><b>03</b><i>CSS foundations</i></span>
+                      <span class="schedule-row"><b>04</b><i>Layout &amp; spacing</i></span>
+                    </div>
+                  }
+                }
+              </div>
+
+              <div class="project-meta">
+                <div class="project-title-row">
+                  <h3>{{ project.title }}</h3>
+                  <span class="project-arrow" aria-hidden="true">↗</span>
+                </div>
+                <p>{{ project.description }}</p>
+                <div class="project-bottom">
+                  <span class="project-category">{{ project.kind }}</span>
+                  <span class="project-stack">{{ project.stack.join(' · ') }}</span>
+                </div>
+              </div>
+            </a>
+          </article>
+        }
+      </div>
+      <a class="text-link all-demos" href="projects/">Browse all demos <span aria-hidden="true">↗</span></a>
+    </div>
+  </section>
+
+  <section class="about-section section" id="about" aria-labelledby="about-title">
+    <div class="page-width about-layout">
+      <div class="about-lead">
+        <p class="eyebrow">A little about me</p>
+        <h2 id="about-title">Thoughtful work, built with care.</h2>
+      </div>
+      <div class="about-copy">
+        <p>
+          I’m a Computer Science graduate focused on front-end development, data, and business
+          systems. I enjoy taking a practical problem and shaping it into a clear, considered
+          digital experience.
+        </p>
+        <p>
+          My experience spans web interfaces, CRM and ERP data, reporting, and email marketing.
+          That mix helps me think about both the experience people use and the systems behind it.
+        </p>
+
+        <div class="application-note" aria-label="Application note for Lifecycle Marketing Strategist role">
+          <p class="application-kicker">Applying for Lifecycle Marketing Strategist</p>
+          <p>
+            I’m Ali Hachem, based in Beirut, and I’m applying for the Lifecycle Marketing Strategist role.
+            My background is rooted in customer data, CRM, and performance analysis.
+          </p>
+          <p>
+            At Rocket Delivery, I managed the company ERP and CRM database and built Power BI reports from it.
+            At Salem Group, I pulled data from multiple sources to create full client proposals covering scope,
+            tools, and budget. I currently work as a Business Development Representative at Vanguard Services,
+            where I handle customer and prospect calls and lead generation through tools such as LinkedIn Sales Navigator
+            and SignalHire, so I hear firsthand how different messages land with people.
+          </p>
+          <p>
+            I’ve also worked in Mailchimp and Klaviyo, and I use SQL and Python to pull segments and review the numbers myself.
+            What drew me to this role is that it is about diagnosing what is working and why, not just sending campaigns.
+            I’m coming from the data and CRM side, and I’m ready to take on the strategy work quickly while continuing to learn.
+          </p>
+        </div>
+
+        <a class="text-link" href="#experience">Explore my experience <span aria-hidden="true">↓</span></a>
+      </div>
+    </div>
+  </section>
+
+  <section class="expertise-section section" id="skills" aria-labelledby="skills-title">
+    <div class="page-width">
+      <div class="section-heading">
+        <div>
+          <p class="eyebrow">Areas of practice</p>
+          <h2 id="skills-title">Where I can help.</h2>
+        </div>
+        <p class="section-intro">A cross-functional toolkit shaped by hands-on engineering, data, and business development experience.</p>
+      </div>
+      <div class="expertise-grid">
+        <article class="expertise-item">
+          <span class="expertise-index">01</span>
+          <h3>Front-end development</h3>
+          <p>Responsive web interfaces, reusable UI, and accessible interaction patterns.</p>
+          <span class="expertise-tools">Angular · TypeScript · JavaScript · HTML · CSS</span>
+        </article>
+        <article class="expertise-item">
+          <span class="expertise-index">02</span>
+          <h3>Data and reporting</h3>
+          <p>Working with business data and shaping it into useful reporting and insights.</p>
+          <span class="expertise-tools">Power BI · SQL · PostgreSQL · Python</span>
+        </article>
+        <article class="expertise-item">
+          <span class="expertise-index">03</span>
+          <h3>Business systems</h3>
+          <p>Supporting customer and operations workflows across connected business tools.</p>
+          <span class="expertise-tools">CRM · ERP · REST APIs · Mailchimp · Klaviyo</span>
+        </article>
+        <article class="expertise-item">
+          <span class="expertise-index">04</span>
+          <h3>Business development</h3>
+          <p>Speaking with customers and prospects, generating leads, and supporting outreach through email campaigns.</p>
+          <span class="expertise-tools">Customer calls · Lead generation · LinkedIn Sales Navigator · SignalHire</span>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="experience-section section" id="experience" aria-labelledby="experience-title">
+    <div class="page-width">
+      <div class="section-heading">
+        <div>
+          <p class="eyebrow">Background</p>
+          <h2 id="experience-title">Experience across disciplines.</h2>
+        </div>
+        <p class="section-intro">A selection of roles spanning business development, data systems, proposals, and email marketing.</p>
+      </div>
+      <ol class="experience-list">
+        @for (job of experience; track job.company; let index = $index) {
+          <li class="experience-item">
+            <span class="experience-index">0{{ index + 1 }}</span>
+            <div>
+              <h3>{{ job.company }}</h3>
+              <span class="experience-role">{{ job.role }}</span>
+            </div>
+            <p>{{ job.summary }}</p>
+          </li>
+        }
+      </ol>
+    </div>
+  </section>
+
+  <section class="contact-section" id="contact" aria-labelledby="contact-title">
+    <div class="page-width contact-inner">
+      <p class="eyebrow">Have a project in mind?</p>
+      <h2 id="contact-title">Let’s make it <em>clear.</em></h2>
+      <p>For project enquiries and collaborations, send me a note.</p>
+      <a class="contact-link" href="mailto:develophashem@gmail.com">
+        develophashem@gmail.com
+        <svg aria-hidden="true" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M4 12h15m-6-6 6 6-6 6"/></svg>
+      </a>
+      <a class="contact-link" href="tel:78852588">
+        78852588
+        <svg aria-hidden="true" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M4 12h15m-6-6 6 6-6 6"/></svg>
+      </a>
+    </div>
+  </section>
+</main>
+
+<footer class="site-footer">
+  <div class="page-width footer-inner">
+    <a href="#home" class="wordmark footer-wordmark"><span class="wordmark-mark">AH</span><span>{{ title() }}</span></a>
+    <p>Front-end development · Beirut</p>
+    <nav aria-label="Footer navigation">
+      <a href="projects/">All project demos</a>
+      <a href="#home">Back to top ↑</a>
+    </nav>
+  </div>
+</footer>
+
+<router-outlet />

@@ -1,0 +1,93 @@
+<!doctype html>
+<html lang="en" data-theme="blue">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="A responsive, accessible course registration form demo.">
+    <title>Course Registration | Practice Project</title>
+    <link rel="stylesheet" href="../project.css">
+  </head>
+  <body>
+    <a class="skip-link" href="#main">Skip to content</a>
+    <header class="site-header">
+      <a class="site-brand" href="../../#about"><span>AH</span> / Portfolio</a>
+      <nav class="site-navigation" aria-label="Project navigation">
+        <a href="../">All demos</a>
+        <a href="../../#projects">Portfolio</a>
+      </nav>
+    </header>
+    <main class="page-shell" id="main">
+      <header class="page-intro">
+        <h1 class="page-title">Find your starting point.</h1>
+        <p class="page-lead">A course registration form that keeps the path from personal details to course preferences clear and manageable.</p>
+        <p class="demo-note"><strong>Practice project</strong> · Sample course options only. This form does not send or save your information.</p>
+      </header>
+      <form id="registration-form" class="form-stack">
+        <fieldset class="form-group">
+          <legend>Your details</legend>
+          <div class="field-grid">
+            <div class="field">
+              <label for="full-name">Full name</label>
+              <input id="full-name" name="fullName" autocomplete="name" required>
+            </div>
+            <div class="field">
+              <label for="email">Email address</label>
+              <input id="email" name="email" type="email" autocomplete="email" required>
+            </div>
+          </div>
+        </fieldset>
+        <fieldset class="form-group">
+          <legend>Course preferences</legend>
+          <div class="field-grid">
+            <div class="field">
+              <label for="level">Experience level</label>
+              <select id="level" name="level">
+                <option value="beginner">Beginner</option>
+                <option value="intermediate">Intermediate</option>
+                <option value="advanced">Advanced</option>
+              </select>
+            </div>
+            <div class="field">
+              <label for="start-month">Preferred start</label>
+              <select id="start-month" name="startMonth">
+                <option value="flexible">I'm flexible</option>
+                <option value="january">January</option>
+                <option value="march">March</option>
+                <option value="june">June</option>
+                <option value="september">September</option>
+              </select>
+            </div>
+            <div class="field field-full">
+              <span class="field-label">Topics you're interested in</span>
+              <div class="choice-list">
+                <label class="choice"><input type="checkbox" name="topics" value="HTML"> HTML</label>
+                <label class="choice"><input type="checkbox" name="topics" value="CSS"> CSS</label>
+                <label class="choice"><input type="checkbox" name="topics" value="Responsive design"> Responsive design</label>
+                <label class="choice"><input type="checkbox" name="topics" value="JavaScript"> JavaScript</label>
+              </div>
+            </div>
+            <div class="field field-full">
+              <label for="questions">Anything else you'd like to share? <span>(optional)</span></label>
+              <textarea id="questions" name="questions" rows="4"></textarea>
+            </div>
+          </div>
+        </fieldset>
+        <div class="form-actions">
+          <button class="button" type="submit">Review registration</button>
+          <p class="form-hint" id="form-status" aria-live="polite"></p>
+        </div>
+      </form>
+    </main>
+    <footer class="site-footer">Form interaction demo · Nothing is transmitted or stored</footer>
+    <script>
+      const form = document.querySelector('#registration-form');
+      const status = document.querySelector('#form-status');
+
+      form.addEventListener('submit', (event) => {
+        event.preventDefault();
+        if (!form.reportValidity()) return;
+        status.textContent = `Thanks, ${form.elements.fullName.value.trim()}. Your sample registration is ready for review.`;
+      });
+    </script>
+  </body>
+</html>

@@ -1,0 +1,120 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Explore Ali Hachem's six interactive web design practice projects.">
+    <title>Project Demos | Ali Hachem</title>
+    <link rel="stylesheet" href="project.css">
+    <style>
+      .demo-grid {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 1rem;
+      }
+
+      .demo-card {
+        min-height: 215px;
+        display: flex;
+        flex-direction: column;
+        padding: 1.35rem;
+        border: 1px solid var(--line);
+        background: var(--surface);
+        text-decoration: none;
+        transition: border-color 160ms ease, transform 160ms ease;
+      }
+
+      .demo-card:hover {
+        transform: translateY(-2px);
+        border-color: var(--accent);
+      }
+
+      .demo-card h2 {
+        margin: 0.8rem 0 0.45rem;
+        color: var(--ink);
+        font-size: 1.25rem;
+        letter-spacing: -0.035em;
+      }
+
+      .demo-card p {
+        margin: 0;
+        color: var(--muted);
+        font-size: 0.95rem;
+      }
+
+      .demo-card span {
+        color: var(--accent);
+        font-size: 0.7rem;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+      }
+
+      .demo-card strong {
+        margin-top: auto;
+        padding-top: 1rem;
+        color: var(--accent);
+        font-size: 0.95rem;
+      }
+
+      @media (max-width: 620px) {
+        .demo-grid {
+          grid-template-columns: 1fr;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <a class="skip-link" href="#main">Skip to content</a>
+    <header class="site-header">
+      <a class="site-brand" href="../#about"><span>AH</span> / Portfolio</a>
+      <nav class="site-navigation" aria-label="Project navigation">
+        <a href="../#projects">Portfolio</a>
+      </nav>
+    </header>
+    <main class="page-shell" id="main">
+      <header class="page-intro">
+        <h1 class="page-title">Explore the demos.</h1>
+        <p class="page-lead">Each project is a small, self-contained site. Choose one to explore, then use the shared navigation to move between demos or return to the main portfolio.</p>
+      </header>
+      <section class="demo-grid" aria-label="Project demos">
+        <a class="demo-card" href="personal-profile/">
+          <span>HTML · CSS</span>
+          <h2>Personal Profile</h2>
+          <p>A focused profile page with clear skills and resource links.</p>
+          <strong>Explore demo →</strong>
+        </a>
+        <a class="demo-card" href="course-registration/">
+          <span>HTML · CSS · JavaScript</span>
+          <h2>Course Registration</h2>
+          <p>An accessible course form with a client-side confirmation.</p>
+          <strong>Explore demo →</strong>
+        </a>
+        <a class="demo-card" href="smartwatch-showcase/">
+          <span>HTML · CSS · JavaScript</span>
+          <h2>Smartwatch Showcase</h2>
+          <p>A concept product page with interactive case colors.</p>
+          <strong>Explore demo →</strong>
+        </a>
+        <a class="demo-card" href="feedback-portal/">
+          <span>HTML · CSS · JavaScript</span>
+          <h2>Feedback Portal</h2>
+          <p>A client-side inbox for reviewing sample feedback submissions.</p>
+          <strong>Explore demo →</strong>
+        </a>
+        <a class="demo-card" href="coffee-shop/">
+          <span>HTML · CSS</span>
+          <h2>Coffee Shop Menu</h2>
+          <p>A café concept organized around menu details and opening hours.</p>
+          <strong>Explore demo →</strong>
+        </a>
+        <a class="demo-card" href="web-design-schedule/">
+          <span>HTML · CSS</span>
+          <h2>Web Design Schedule</h2>
+          <p>A sample eight-week outline for learning web design fundamentals.</p>
+          <strong>Explore demo →</strong>
+        </a>
+      </section>
+    </main>
+    <footer class="site-footer">Six practice projects · Browse from one shared portfolio</footer>
+  </body>
+</html>
